@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { EstudianteResponse } from 'src/app/interfaces/intEstudiantes/EstudianteResponse';
-import { EstudianteService } from 'src/app/services/estudiante.service';
 
 @Component({
   selector: 'app-home',
@@ -11,16 +9,15 @@ import { EstudianteService } from 'src/app/services/estudiante.service';
 export class HomePage {
 
   constructor(
-    private navCtrl: NavController,
-    private estService: EstudianteService
+    private navCtrl: NavController
   ) {}
 
   goToLogin(){
-    this.navCtrl.navigateForward('/login');
+    this.navCtrl.navigateForward('/login-estudiante');
   }
 
   goToLogup(){
-    this.navCtrl.navigateForward('/logup');
+    this.navCtrl.navigateForward('/logup-estudiante');
   }
 
 
