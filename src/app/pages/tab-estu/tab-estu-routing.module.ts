@@ -16,7 +16,11 @@ const routes: Routes = [
       {
         path: 'report-estu',
         loadChildren: () => import('../report-estu/report-estu.module').then( m => m.ReportEstuPageModule)
-      }
+      },
+      {
+        path: 'perfil-estudiante',
+        loadChildren: () => import('../perfil-estudiante/perfil-estudiante.module').then( m => m.PerfilEstudiantePageModule)
+      },
     ]
   }
 ];

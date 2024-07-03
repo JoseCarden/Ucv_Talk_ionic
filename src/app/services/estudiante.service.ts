@@ -27,4 +27,14 @@ export class EstudianteService {
     return this.http.post<EstudianteResponse>('http://localhost:3000/estudiante/login',estLogin);
   }
 
+  getUnEstudiante(id: number): Observable<EstudianteResponse>{
+    return this.http.get<EstudianteResponse>
+    (`http://localhost:3000/estudiante/${id}`);
+  }
+
+  updatePass(id: number, estudiante: EstudianteRequest): Observable<EstudianteRequest>{
+    return this.http.patch<EstudianteRequest>
+    (`http://localhost:3000/estudiante/${id}`,estudiante);
+  }
+
 }
