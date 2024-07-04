@@ -12,22 +12,21 @@
 
   <form [formGroup]="formReporEstu" class="ion-padding">
     <ion-item>
-      <ion-label position="stacked">Asunto</ion-label>
-      <ion-input 
-        formControlName="asunto"
-        placeholder="Resuma el asunto"
-        class="custom-input">
-      </ion-input>
+      <ion-label position="stacked">Asunto</ion-label> <!-- Corregido: etiqueta ion-label cerrada correctamente -->
+      <ion-select formControlName="asunto" (ionChange)="checkAsunto($event)">
+        <ion-select-option *ngFor="let asunto of asuntos" [value]="asunto">{{ asunto }}</ion-select-option>
+        <ion-select-option value="otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="isOtro">
+      <ion-label position="stacked">Otro Asunto</ion-label>
+      <ion-input formControlName="otroAsunto" placeholder="Especifique el asunto" class="custom-input"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Descripción</ion-label>
-      <ion-textarea 
-        formControlName="descripcion"
-        placeholder="Describa su reporte"
-        rows="6"
-        class="custom-input">
-      </ion-textarea>
+      <ion-textarea formControlName="descripcion" placeholder="Describa su reporte" rows="6" class="custom-input"></ion-textarea>
     </ion-item>
 
     <ion-button expand="block" class="custom-button" (click)="NuevoReporteEstu()">
@@ -35,5 +34,4 @@
     </ion-button>
 
   </form>
-
 </ion-content>
