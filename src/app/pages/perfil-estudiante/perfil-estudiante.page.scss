@@ -1,0 +1,85 @@
+ion-header {
+    --background: #00000000; /* Fondo negro puro */
+    color: rgb(0, 0, 0); /* Color del texto blanco para mejor contraste */
+  }
+  
+ion-content {
+    --background: none; /* Remueve cualquier fondo por defecto de ion-content */
+  }
+
+  ion-title {
+    text-align: center; /* Centra el texto del título */
+    color: rgb(0, 0, 0);
+  }
+  
+ion-toolbar{
+    --background: #00000000; /* Fondo negro puro */
+  }
+  .background-image {
+    width: 100%;
+    height: 100%; /* Ajusta al tamaño completo del contenido */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Centra verticalmente */
+    width: 80%; /* Ocupa todo el ancho */
+  }
+  
+  ion-list {
+    width: 100%;
+    background: transparent; /* Fondo transparente */
+  }
+  
+  ion-item:first-of-type {
+    margin-top: -50px; /* Añadir más margen superior al primer campo */
+  }
+  
+  ion-item {
+    --background: transparent; /* Fondo transparente para los items */
+    --color: #000000; /* Color del texto */
+    --placeholder-color: #000000; /* Color del placeholder */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Borde inferior para separar los ítems */
+    margin-bottom: 20px; /* Espaciado entre los items */
+    font-weight: bold;
+  }
+  
+  ion-input, ion-select {
+    --background: transparent; /* Fondo transparente para los campos de entrada */
+    --color: #000000; /* Color del texto */
+    --placeholder-color: #000000; /* Color del placeholder */
+  }
+  
+  ion-button {
+    margin-top: 10px;
+    --background: rgba(52, 48, 165, 0) !important;
+    --color: rgb(0, 0, 79) !important;
+    transition: background-color 0.3s ease; /* Transición suave */
+    --color: #000073; /* Color del texto del botón */
+  }
+  

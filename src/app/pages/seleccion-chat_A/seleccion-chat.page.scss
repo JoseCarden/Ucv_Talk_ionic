@@ -19,7 +19,7 @@ ion-toolbar{
 
 ion-content {
   --background: #1c1c1c; /* Color oscuro para el fondo */
-  color: white; /* Texto blanco */
+  color: rgb(0, 0, 0) !important;
 }
 .active-indicator {
   width: 12px;
@@ -66,12 +66,14 @@ ion-content {
   font-weight: bold;
   font-size: 1em;
   margin: 0 0 5px 0; /* Espacio entre el nombre y el usuario/especialidad */
+  color: rgb(0, 0, 0) !important; 
 }
 
 .profile-info p {
   font-size: 0.9em;
   margin: 0;
-  color: #555; /* Color de texto gris */
+  color: rgb(0, 0, 0) !important; /* Color del texto negro */
+
 }
 ion-list {
   padding: 10px;
@@ -102,5 +104,5 @@ ion-label{
 }
 
 ion-segment-button {
-  color: white; /* Color del texto de los segmentos */
+  color: rgb(0, 0, 0); /* Color del texto de los segmentos */
 }
