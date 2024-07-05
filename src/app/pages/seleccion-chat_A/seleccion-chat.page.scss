@@ -1,4 +1,22 @@
 
+ion-title {
+  margin: 0 auto; /* Centrar el título en la cabecera */
+  color: rgb(255, 255, 255);
+}
+
+ion-toolbar{
+  --background: #00000000; /* Fondo negro puro */
+}
+
+.custom-background {
+  --background: url('../../../../src/assets/icon/FondoPrueba4.png') no-repeat center center fixed;
+  --background-size: cover;
+}
+
+ion-content {
+  --background: #1c1c1c; /* Color oscuro para el fondo */
+  color: rgb(0, 0, 0) !important;
+}
 .active-indicator {
   width: 12px;
   height: 12px;
@@ -44,10 +62,43 @@
   font-weight: bold;
   font-size: 1em;
   margin: 0 0 5px 0; /* Espacio entre el nombre y el usuario/especialidad */
+  color: rgb(0, 0, 0) !important; 
 }
 
 .profile-info p {
   font-size: 0.9em;
   margin: 0;
-  color: #555; /* Color de texto gris */
+  color: rgb(0, 0, 0) !important; /* Color del texto negro */
+
+}
+ion-list {
+  padding: 10px;
+  background-color: transparent;
+}
+
+::ng-deep ion-item {
+  --background: transparent; /* Fondo transparente */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+    
+ion-thumbnail img {
+  border-radius: 50%;
+}
+
+ion-label h2, ion-label p {
+  color: rgb(255, 255, 255); /* Color del texto blanco */
+}
+
+ion-label p {
+  font-size: 0.8em;
+  color: #b5b4b4e1; /* Color del texto secundario gris claro */
+}
+
+ion-label{
+  background-color: transparent;
+}
+
+ion-segment-button {
+  color: rgb(0, 0, 0); /* Color del texto de los segmentos */
 }

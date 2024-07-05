@@ -89,7 +89,6 @@ export class PerfilEstudiantePage implements OnInit {
           } else {
             //Borado de campos
             const passActualInput = alert.inputs.find(input => input.name === 'passActual');
-            console.log(passActualInput);
             if (passActualInput) {
               passActualInput.value = '';
             }

@@ -1,11 +1,36 @@
 /* Estilo para agregar margen inferior a los items */
+ion-header {
+  --background: #00000000; /* Fondo negro puro */
+  color: rgb(0, 0, 0); /* Color del texto blanco para mejor contraste */
+}
+
+ion-title {
+  margin: 0 auto; /* Centrar el título en la cabecera */
+  color: rgb(0, 0, 0);
+}
+
+.custom-background {
+  --background: url('../../../../src/assets/icon/FondoPrueba5.png') no-repeat center center fixed;
+  --background-size: cover;
+}
+
 ion-item.ion-margin-bottom {
     --padding-bottom: 15px; /* Ajuste del espaciado inferior */
   }
   
+  ion-toolbar{
+    --background: #00000000; /* Fondo negro puro */
+  }
+  
+  ion-item  {
+    --background: #83081400;
+    --color: #000000;
+    
+  }
+  
   .custom-button {
-    --background: #830815; /* Color de fondo rojo */
-    --color: #fff; /* Color de texto blanco */
+    --background: #00000000; /* Color de fondo rojo */
+    --color: #000000; /* Color de texto blanco */
     --border-radius: 5px; /* Borde redondeado */
     width: 45%; /* Ancho del botón al 45% */
     margin-left: 60%; /* Margen izquierdo para ajustar la posición a la derecha */
@@ -17,5 +42,6 @@ ion-item.ion-margin-bottom {
   }
   
   .custom-button:hover {
-    --background: #000; /* Color de fondo negro al pasar el ratón */
+    --background: #02005f; /* Color de fondo negro al pasar el ratón */
   }
+  

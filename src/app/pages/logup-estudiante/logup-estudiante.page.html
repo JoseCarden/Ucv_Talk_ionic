@@ -1,8 +1,5 @@
 <ion-content [fullscreen]="true">
-  <video autoplay muted loop id="video-background" preload="auto">
-    <source src="../assets/Videos/fondo4.mp4" type="video/mp4">
-    Tu navegador no soporta la etiqueta de video.
-  </video>
+  <img src="../assets/icon/FondoPrueba3.png" alt="Fondo de prueba" class="background-image">
   
   <div class="overlay">
     <ion-header collapse="condense">
@@ -65,7 +62,7 @@
         </ion-list>
       </form>
 
-      <ion-button expand="block" color="primary" (click)="registrarEstudiante()">Registrar</ion-button>
+      <ion-button (click)="registrarEstudiante()">Registrar</ion-button>
     </div>
   </div>
 </ion-content>
