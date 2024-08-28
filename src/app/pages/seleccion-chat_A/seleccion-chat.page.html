@@ -16,7 +16,7 @@
   </ion-toolbar>
   
   <ion-list lines="none">
-    <ion-item *ngFor="let profesional of Profesionales; let i = index" button (click)="presentActionSheet(profesional)">
+    <ion-item *ngFor="let profesional of Profesionales; let i = index" button (click)="mostrarActionSheet(profesional)">
       <div class="profile-container">
         <ion-thumbnail class="profile-image">
           <img src="https://ionicframework.com/docs/img/demos/thumbnail.svg" alt="Profile Picture">
