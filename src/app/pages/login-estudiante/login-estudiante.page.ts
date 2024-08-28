@@ -18,9 +18,9 @@ export class LoginEstudiantePage implements OnInit {
     private estService: EstudianteService,
     public alertCrl: AlertController,
     private toastCtrl: ToastController,
-    public fb: FormBuilder
+    public fB: FormBuilder
   ){ 
-    this.formLoginEstudiante = this.fb.group({
+    this.formLoginEstudiante = this.fB.group({
       'usuario': new FormControl("",Validators.required),
       'password': new FormControl("",Validators.required),
     })

@@ -16,7 +16,6 @@ export class LogupEstudiantePage implements OnInit {
     private navCtrl: NavController,
     private estService: EstudianteService,
     public alertCrl: AlertController,
-    private toastCtrl: ToastController,
     public fb: FormBuilder
   ) { 
     this.formLogupEstudiante = this.fb.group({
@@ -38,12 +37,12 @@ export class LogupEstudiantePage implements OnInit {
 
     //Mensaje en caso no válido
     if(this.formLogupEstudiante.invalid){
-      const alert = await this.alertCrl.create({
+      const alerta = await this.alertCrl.create({
         header: 'Faltan datos',
         message: 'Tienes que poner un usuario y contraseña',
         buttons: ['Aceptar']
       });
-      await alert.present();
+      await alerta.present();
       return;
     }
 
@@ -63,12 +62,13 @@ export class LogupEstudiantePage implements OnInit {
     })
 
     //Alerta de confirmación
-    const alert2 = await this.alertCrl.create({
+    const alerta2 = await this.alertCrl.create({
       header: 'Se registró correctamente',
-      message: 'Para mayor anónimato, solo se usará como identificador al usuario colocado',
+      message: 'Para mayor anónimato, solo se usará'+
+            'como identificador al usuario colocado',
       buttons: ['Aceptar']
     });
-    await alert2.present();
+    await alerta2.present();
 
     //Redirección a HOME
     this.navCtrl.navigateBack('/home');
