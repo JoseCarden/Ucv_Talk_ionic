@@ -19,16 +19,16 @@ export class PerfilEstudiantePage implements OnInit {
     Usuario: '',
     Contra: ''
   };
-  User = [];
+  Usu = [];
 
   constructor(
     private navCtrl: NavController,
     private estService: EstudianteService,
     public alertCrl: AlertController,
     private toastCtrl: ToastController,
-    public fb: FormBuilder
+    public fB: FormBuilder
   ) { 
-    this.formPerfilEstu = this.fb.group({
+    this.formPerfilEstu = this.fB.group({
       'idUcv': new FormControl("",Validators.required),
       'usuario': new FormControl("",Validators.required)
     })
@@ -38,13 +38,14 @@ export class PerfilEstudiantePage implements OnInit {
     //Obtención de datos del estudiante logueado
     const est = localStorage.getItem('estu')
     if(est){
-      this.User = JSON.parse(est);
+      this.Usu = JSON.parse(est);
     }else{
-      this.User = [];
+      this.Usu = [];
     }
 
     //Busqueda de información en BD mediante servicio
-    const estu = await firstValueFrom(this.estService.getUnEstudiante(this.User[0]));
+    const estu = await firstValueFrom(
+      this.estService.getUnEstudiante(this.Usu[0]));
 
     //Actualización de valores del form
     this.formPerfilEstu.patchValue({
@@ -61,7 +62,7 @@ export class PerfilEstudiantePage implements OnInit {
     }
   }
 
-  async newPass(){
+  async nuevaContra(){
     const  passActual = this.Estudiante.Contra;
 
     const alert = await this.alertCrl.create({
@@ -83,21 +84,12 @@ export class PerfilEstudiantePage implements OnInit {
         text: 'OK',
         handler: (data) => {
           if (data.passActual === passActual) {
-            this.changePassword(data.passNueva); 
-            this.showToast('Contraseña cambiada con éxito')
+            this.cambiarContra(data.passNueva); 
+            this.verToast('Contraseña cambiada con éxito')
             return true; 
           } else {
-            //Borado de campos
-            const passActualInput = alert.inputs.find(input => input.name === 'passActual');
-            if (passActualInput) {
-              passActualInput.value = '';
-            }
-            const passNuevaInput = alert.inputs.find(input => input.name === 'passNueva');
-            if (passNuevaInput) {
-              passNuevaInput.value = '';
-            }
             //Muestra de aviso
-            this.showToast('Contraseña incorrecta, intente de nuevo')
+            this.verToast('Contraseña incorrecta, intente de nuevo')
             return false;
           }
         }
@@ -107,12 +99,12 @@ export class PerfilEstudiantePage implements OnInit {
     await alert.present();
   }
 
-  signOff(){
+  SesionOff(){
     localStorage.removeItem('estu');
     this.navCtrl.navigateBack('login-estudiante');
   }
 
-  async changePassword(passNueva: string){
+  async cambiarContra(passNueva: string){
     //Hacer "copia" de estudiante, cambiando solo "Contra"
     let newEstu = {
       ...this.Estudiante,
@@ -122,7 +114,7 @@ export class PerfilEstudiantePage implements OnInit {
     .subscribe(resp => console.log(resp))
   }
 
-  async showToast(msg: string){
+  async verToast(msg: string){
     const toast = await this.toastCtrl.create({
       message: msg,
       duration: 2000
