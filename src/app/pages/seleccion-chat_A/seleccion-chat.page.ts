@@ -21,7 +21,7 @@ export class SeleccionChatPage implements OnInit {
     private estService: ProfesionalService,
     private calService: CalificarProfesService,
     private socket: Socket,
-    private actionSheetCtrl: ActionSheetController,
+    private actSheCtrl: ActionSheetController,
     private alertCtrl: AlertController
   ) { }
 
@@ -35,34 +35,34 @@ export class SeleccionChatPage implements OnInit {
     //Servicio de profesional (para listar profesionales)
     this.estService.getProfesional()
     .subscribe(Profesional => this.Profesionales.push(...Profesional));
-    this.startProgressBar(5);
+    this.BarraCarga(5);
   }
 
-  startProgressBar(duration: number) {
-    const progressBar = document.getElementById('progress-bar') as HTMLIonProgressBarElement;
-    let progress = 0;
-    const interval = 100; // 100ms interval
-    const increment = (interval / (duration * 1000)) * 100;
+  BarraCarga(duracion: number) {
+    const barraLoad = document.getElementById('progress-bar') as HTMLIonProgressBarElement;
+    let progreso = 0;
+    const intervalo = 100; 
+    const incremento = (intervalo / (duracion * 1000)) * 100;
 
-    const intervalId = setInterval(() => {
-      progress += increment;
-      if (progress >= 100) {
-        progressBar.value = 1;
-        clearInterval(intervalId);
+    const idIntervalo = setInterval(() => {
+      progreso += incremento;
+      if (progreso >= 100) {
+        barraLoad.value = 1;
+        clearInterval(idIntervalo);
         setTimeout(() => {
-          progressBar.style.opacity = '0';
+          barraLoad.style.opacity = '0';
           setTimeout(() => {
-            progressBar.style.display = 'none';
+            barraLoad.style.display = 'none';
           }, 500); // Delay to hide after fading out
         }, 500); // Delay to show 100% before hiding
       } else {
-        progressBar.value = progress / 100;
+        barraLoad.value = progreso / 100;
       }
-    }, interval);
+    }, intervalo);
   }
   
-  async presentActionSheet(Profesional: ProfesionalResponse) {
-    const actionSheet = await this.actionSheetCtrl.create({
+  async mostrarActionSheet(Profesional: ProfesionalResponse) {
+    const actionSheet = await this.actSheCtrl.create({
       header: 'Acciones',
       buttons: [
         {
@@ -96,19 +96,15 @@ export class SeleccionChatPage implements OnInit {
     this.socket.connect();
     this.socket.emit('set-nickname', this.Estudiante[1]);
     this.navCtrl.navigateForward(`chat-room`) ;
-    console.log("EstuID: ",this.Estudiante[0])
-    console.log('Iniciar chat con:', Profesional);
   }
 
 
   //Funcion para calificar a un profesional
   async rate(Profesional: ProfesionalResponse) {
 
-    console.log('Calificar a:', Profesional);
-
     //Alerta de entrada
-    const alert = await this.alertCtrl.create({
-      header: 'Valorice la atencion',
+    const alerta = await this.alertCtrl.create({
+      header: 'Valorice la atención',
       inputs: [
         {
           name: 'Calificacion',
@@ -121,8 +117,8 @@ export class SeleccionChatPage implements OnInit {
       buttons: ['OK'],
     });
 
-    await alert.present();
-    const { data } = await alert.onDidDismiss();
+    await alerta.present();
+    const { data } = await alerta.onDidDismiss();
     const {Calificacion} = data.values;
     if (data && data.values){
            
@@ -133,9 +129,7 @@ export class SeleccionChatPage implements OnInit {
       }
 
       this.calService.postCalificar(Califica)
-      .subscribe( resp => {
-        console.log(resp);
-      });
+      .subscribe();
     }
   }
 }

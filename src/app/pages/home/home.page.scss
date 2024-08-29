@@ -1,17 +1,8 @@
 
 ion-content {
-  --background: none; /* Remueve cualquier fondo por defecto de ion-content */
-}
+  --background: linear-gradient(to bottom, #f5f5dc, #d4b483);     
+  }
 
-.background-image {
-  width: 100%;
-  height: 100%; /* Ajusta al tamaño completo del contenido */
-  object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
 .button-container {
     display: flex;
     flex-direction: column;
@@ -31,7 +22,7 @@ ion-content {
   
 .button-container ion-button.button-solid {
 --background: rgba(52, 48, 165, 0) !important; /* Sobrescribe el color de fondo a rojo */
---color: white !important; /* Sobrescribe el color del texto a blanco */
+--color: rgb(0, 0, 0) !important; /* Sobrescribe el color del texto a blanco */
 }
 
 .button-container ion-button.button-solid:hover {

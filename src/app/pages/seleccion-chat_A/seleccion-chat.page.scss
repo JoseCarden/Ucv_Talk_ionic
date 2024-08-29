@@ -1,22 +1,19 @@
 
 ion-title {
   margin: 0 auto; /* Centrar el título en la cabecera */
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 ion-toolbar{
   --background: #00000000; /* Fondo negro puro */
 }
 
-.custom-background {
-  --background: url('../../../../src/assets/icon/FondoPrueba4.png') no-repeat center center fixed;
-  --background-size: cover;
-}
 
 ion-content {
-  --background: #1c1c1c; /* Color oscuro para el fondo */
-  color: rgb(0, 0, 0) !important;
+  --background: linear-gradient(to bottom, #f5f5dc, #d4b483);
 }
+
+
 .active-indicator {
   width: 12px;
   height: 12px;
@@ -87,7 +84,7 @@ ion-thumbnail img {
 }
 
 ion-label h2, ion-label p {
-  color: rgb(255, 255, 255); /* Color del texto blanco */
+  color: rgb(0, 0, 0); /* Color del texto blanco */
 }
 
 ion-label p {
