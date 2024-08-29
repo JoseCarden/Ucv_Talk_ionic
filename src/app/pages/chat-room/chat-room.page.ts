@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
 import { ToastController } from '@ionic/angular';
 import { UserData } from '../../interfaces/intChat/UserData';
-import { Message } from '../../interfaces/intChat/Message';
+import { Message as Mensaje } from '../../interfaces/intChat/Message';
 
 @Component({
   selector: 'app-chat-room',
@@ -12,12 +11,11 @@ import { Message } from '../../interfaces/intChat/Message';
 })
 export class ChatRoomPage implements OnInit, OnDestroy{
 
-  messages: Message[] = [];
-  nickname: string | null = '';
-  message: string = '';
+  mensajes: Mensaje[] = [];
+  nick: string | null = '';
+  mensaje: string = '';
 
   constructor(
-    private route: ActivatedRoute,
     private socket: Socket,
     private toastCtrl: ToastController
   ) { }
@@ -26,12 +24,12 @@ export class ChatRoomPage implements OnInit, OnDestroy{
 
     const uc = localStorage.getItem('user-chat');
     if(uc){
-      this.nickname = JSON.parse(uc);
+      this.nick = JSON.parse(uc);
     } else{
-      this.nickname = 'vacio';
+      this.nick = 'vacio';
     }
 
-    this.socket.on('message', (message: Message) => this.messages.push(message));
+    this.socket.on('message', (message: Mensaje) => this.mensajes.push(message));
 
     this.socket.on('users-changed', (data: UserData) => {
       const user = data['user'];
@@ -42,9 +40,9 @@ export class ChatRoomPage implements OnInit, OnDestroy{
       }
     });
   }
-  sendMessage() {
-    this.socket.emit('add-message', { text: this.message });
-    this.message = '';
+  enviarMensaje() {
+    this.socket.emit('add-message', { text: this.mensaje });
+    this.mensaje = '';
   }
 
   ngOnDestroy() {

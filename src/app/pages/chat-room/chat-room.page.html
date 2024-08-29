@@ -11,19 +11,19 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row *ngFor="let message of messages">
-      <ion-col size="9" *ngIf="message.from !== nickname" class="message"
-               [ngClass]="{'my_message': message.from === nickname, 'other_message': message.from !== nickname}">
-        <span class="user_name">{{ message.from }}:</span><br>
-        <span>{{ message.text }}</span>
-        <div class="time">{{ message.created | date:'hh:mm a' }}</div>
+    <ion-row *ngFor="let mensaje of mensajes">
+      <ion-col size="9" *ngIf="mensaje.from !== nick" class="message"
+               [ngClass]="{'my_message': mensaje.from === nick, 'other_message': mensaje.from !== nick}">
+        <span class="user_name">{{ mensaje.from }}:</span><br>
+        <span>{{ mensaje.text }}</span>
+        <div class="time">{{ mensaje.created | date:'hh:mm a' }}</div>
       </ion-col>
 
-      <ion-col offset="3" size="9" *ngIf="message.from === nickname" class="message"
-               [ngClass]="{'my_message': message.from === nickname, 'other_message': message.from !== nickname}">
-        <span class="user_name">{{ message.from }}:</span><br>
-        <span>{{ message.text }}</span>
-        <div class="time">{{ message.created | date:'hh:mm a' }}</div>
+      <ion-col offset="3" size="9" *ngIf="mensaje.from === nick" class="message"
+               [ngClass]="{'my_message': mensaje.from === nick, 'other_message': mensaje.from !== nick}">
+        <span class="user_name">{{ mensaje.from }}:</span><br>
+        <span>{{ mensaje.text }}</span>
+        <div class="time">{{ mensaje.created | date:'hh:mm a' }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -34,12 +34,12 @@
     <ion-row class="message_row">
       <ion-col size="9">
         <ion-item no-lines>
-          <ion-input type="text" placeholder="Escribir" [(ngModel)]="message"></ion-input>
+          <ion-input type="text" placeholder="Escribir" [(ngModel)]="mensaje"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="3">
-        <ion-button clear color="primary" (click)="sendMessage()" [disabled]="!message">
-          <ion-icon slot="icon-only" name="send"></ion-icon>
+        <ion-button clear color="primary" (click)="enviarMensaje()" [disabled]="!mensaje">
+          OK
         </ion-button>
       </ion-col>
     </ion-row>
