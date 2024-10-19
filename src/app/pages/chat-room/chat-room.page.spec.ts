@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatRoomPage } from './chat-room.page';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('ChatRoomPage', () => {
   let component: ChatRoomPage;

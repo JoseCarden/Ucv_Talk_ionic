@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
 import { ToastController } from '@ionic/angular';
 import { UserData } from '../../interfaces/intChat/UserData';
@@ -17,7 +16,6 @@ export class ChatRoomPage implements OnInit, OnDestroy{
   message: string = '';
 
   constructor(
-    private route: ActivatedRoute,
     private socket: Socket,
     private toastCtrl: ToastController
   ) { }
